@@ -15,3 +15,12 @@ func permutation(num int) int {
 	}
 	return num * permutation(num-1)
 }
+
+//by Python
+//def factorial(value):
+//	if value <= 1:
+//		return 1
+//	return value * factorial(value-1)
+//
+//num = int(input())
+//print(factorial(num))

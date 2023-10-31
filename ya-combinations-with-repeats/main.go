@@ -6,11 +6,11 @@ func main() {
 	var numN, numK int
 	fmt.Scan(&numN, &numK) // standard input
 
-	fmt.Print(combination(numN, numK)) // standard output
+	fmt.Print(combinationWithRepeats(numN, numK)) // standard output
 }
 
-func combination(numN int, numK int) int {
-	return factorial(numN) / (factorial(numK) * factorial(numN-numK))
+func combinationWithRepeats(numN int, numK int) int {
+	return factorial(numK+numN-1) / (factorial(numN-1) * factorial(numK))
 }
 
 func factorial(num int) int {
@@ -22,7 +22,7 @@ func factorial(num int) int {
 
 //by Python
 //def combination(numN, numK):
-//	return factorial(numN) // (factorial(numK) * factorial(numN-numK))
+//	return factorial(numK+numN-1) // (factorial(numN-1) * factorial(numK))
 //
 //def factorial(num):
 //	if num <= 1:
