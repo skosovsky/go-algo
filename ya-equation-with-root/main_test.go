@@ -34,7 +34,7 @@ func Test_solveEquation(t *testing.T) {
 		{
 			name:       "Example 4",
 			args:       args{0, 0, 0},
-			wantResult: "MANY SOLUTION",
+			wantResult: "MANY SOLUTIONS",
 		},
 		{
 			name:       "Example 5",
@@ -49,7 +49,7 @@ func Test_solveEquation(t *testing.T) {
 		{
 			name:       "Example 7",
 			args:       args{0, 4, 2},
-			wantResult: "MANY SOLUTION",
+			wantResult: "MANY SOLUTIONS",
 		},
 		{
 			name:       "Example 8",

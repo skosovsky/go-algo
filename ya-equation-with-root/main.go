@@ -13,21 +13,19 @@ func main() {
 }
 
 func solveEquation(numA int, numB int, numC int) (result interface{}) {
-	if numC < 0 {
-		return "NO SOLUTION"
-	} else if numA == 0 {
-		if int(math.Pow(float64(numC), 2)) == numB {
-			return "MANY SOLUTION"
+	switch {
+	case numA == 0 && int(math.Pow(float64(numC), 2))-numB == 0:
+		result = "MANY SOLUTIONS"
+	case numA == 0 && int(math.Pow(float64(numC), 2))-numB != 0 || numC < 0:
+		result = "NO SOLUTION"
+	default:
+		resultFloat := (math.Pow(float64(numC), 2) - float64(numB)) / float64(numA)
+
+		if resultFloat != float64(int(resultFloat)) {
+			result = "NO SOLUTION"
 		} else {
-			return "NO SOLUTION"
+			result = int(resultFloat)
 		}
 	}
-
-	resultFloat := (math.Pow(float64(numC), 2) - float64(numB)) / float64(numA)
-
-	if resultFloat == float64(int(resultFloat)) {
-		return int(resultFloat)
-	} else {
-		return "NO SOLUTION"
-	}
+	return result
 }
