@@ -6,10 +6,10 @@ import (
 )
 
 func main() {
-	var numA, numB, NumC int
-	fmt.Scan(&numA, &numB, &NumC) // standard input
+	var numA, numB, numC int
+	fmt.Scan(&numA, &numB, &numC) // standard input
 
-	fmt.Println(solveEquation(numA, numB, NumC)) // standard output
+	fmt.Println(solveEquation(numA, numB, numC)) // standard output
 }
 
 func solveEquation(numA int, numB int, numC int) (result interface{}) {
