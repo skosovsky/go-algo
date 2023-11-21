@@ -47,9 +47,14 @@ func Test_checkMonotopy(t *testing.T) {
 			wantResult: true,
 		},
 		{
-			name:       "Example 7",
+			name:       "Example 8",
 			args:       args{[]int{5, 6, 7, 6, 11, 12}},
 			wantResult: false,
+		},
+		{
+			name:       "Example 9",
+			args:       args{[]int{9, 9, 9}},
+			wantResult: true,
 		},
 	}
 	for _, tt := range tests {
@@ -58,5 +63,23 @@ func Test_checkMonotopy(t *testing.T) {
 				t.Errorf("checkMonotopy() = %v, want %v", gotResult, tt.wantResult)
 			}
 		})
+	}
+}
+
+func BenchmarkCheckMonotopy(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		checkMonotopy([]int{5, 6, 7, 6, 11, 12})
+	}
+}
+
+func BenchmarkCheckSlice(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		checkSlice([]int{5, 6, 7, 6, 11, 12})
+	}
+}
+
+func BenchmarkIsMonotonic(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		isMonotonic([]int{5, 6, 7, 6, 11, 12})
 	}
 }

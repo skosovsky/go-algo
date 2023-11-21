@@ -61,3 +61,36 @@ func checkMonotopy(userSlice []int) bool {
 
 	return counterFalse == 0
 }
+
+func checkSlice(slice []int) bool {
+	if len(slice) <= 1 {
+		return true
+	}
+
+	iterationSize := slice[0] - slice[1]
+	for i := 1; i < len(slice)-1; i++ {
+		if iterationSize != slice[i]-slice[i+1] {
+			return false
+		}
+	}
+
+	return true
+}
+
+func isMonotonic(in []int) bool {
+	less := false
+	great := true
+
+	for i := 1; i < len(in); i++ {
+		if in[i] > in[i-1] && !less {
+			great = false
+		} else if in[i] < in[i-1] && !great {
+			return false
+		} else if in[i] < in[i-1] && great {
+			less = true
+		} else if in[i] > in[i-1] && less {
+			return false
+		}
+	}
+	return true
+}
