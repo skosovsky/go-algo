@@ -23,7 +23,7 @@ func main() {
 	fmt.Println(checkMonotopy(userSlice))
 }
 
-func checkMonotopy(userSlice []int) (result bool) {
+func checkMonotopy(userSlice []int) bool {
 	if len(userSlice) <= 2 {
 		return true
 	}
@@ -56,8 +56,5 @@ func checkMonotopy(userSlice []int) (result bool) {
 		}
 	}
 
-	if counterFalse == 0 {
-		return true
-	}
-	return false
+	return counterFalse == 0
 }
