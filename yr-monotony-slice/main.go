@@ -41,6 +41,9 @@ func checkMonotopy(userSlice []int) bool {
 	counterFalse := 0
 
 	for i := 2; i <= len(userSlice)-1; i++ {
+		if counterFalse != 0 {
+			return false
+		}
 		seconDirect := ""
 
 		if userSlice[i] > userSlice[i-1] {
