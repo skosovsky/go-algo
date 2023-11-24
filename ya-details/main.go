@@ -22,7 +22,7 @@ func countM(n, k, m int) (mCount int) {
 
 	for {
 		if n-(k/m*m) >= 0 {
-			n -= k / m * m
+			n -= (k / m * m)
 			mCount += k / m
 		}
 
