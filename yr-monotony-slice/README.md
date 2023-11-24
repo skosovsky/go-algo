@@ -6,21 +6,21 @@ From chat
 Пример работы программы:
 
 Input:
-{1, 2, 3, 4}  
+{1, 2, 3, 4}
 Output:
 true
 
 Input:
-{1, 1}  
+{1, 1}
 Output:
 true
 
 Input:
-{9, 5, 1}  
+{9, 5, 1}
 Output:
 true
 
 Input:
-{9, 5, 10}  
+{9, 5, 10}
 Output:
 false
