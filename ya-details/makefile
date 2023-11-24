@@ -1,4 +1,4 @@
-APP=algo
+APP=algo/ya-details
 .PHONY: help
 help: Makefile ## Show this help
 	@echo
@@ -15,6 +15,10 @@ build: ## Build an application
 run: ## Run an application
 	@echo "Starting ${APP} ..."
 	go run main.go
+
+test: ## Run an application
+	@echo "Testing ${APP} ..."
+	go test
 
 clean: ## Clean a garbage
 	@echo "Cleaning"
