@@ -9,7 +9,7 @@ func main() {
 	fmt.Print(combination(numN, numK)) // standard output
 }
 
-func combination(numN int, numK int) int {
+func combination(numN, numK int) int {
 	return factorial(numN) / (factorial(numK) * factorial(numN-numK))
 }
 
@@ -20,14 +20,14 @@ func factorial(num int) int {
 	return num * factorial(num-1)
 }
 
-//by Python
-//def combination(numN, numK):
+// by Python
+// def combination(numN, numK):
 //	return factorial(numN) // (factorial(numK) * factorial(numN-numK))
 //
-//def factorial(num):
+// def factorial(num):
 //	if num <= 1:
 //		return 1
 //	return num * factorial(num-1)
 //
-//numN, numK = map(int, input().split())
-//print(combination(numN, numK))
+// numN, numK = map(int, input().split())
+// print(combination(numN, numK))

@@ -6,7 +6,7 @@ func main() {
 	var num int
 	fmt.Scan(&num) // standard input
 
-	fmt.Print(permutation(5)) // standard output
+	fmt.Print(permutation(5)) //nolint:gomnd    // standard output
 }
 
 func permutation(num int) int {
@@ -16,11 +16,11 @@ func permutation(num int) int {
 	return num * permutation(num-1)
 }
 
-//by Python
-//def factorial(value):
+// by Python
+// def factorial(value):
 //	if value <= 1:
 //		return 1
 //	return value * factorial(value-1)
 //
-//num = int(input())
-//print(factorial(num))
+// num = int(input())
+// print(factorial(num))

@@ -25,9 +25,9 @@ func comparePhone(phoneNumMain string, phonesNumAdd ...string) {
 }
 
 func convertToValidPhone(phoneNum string) (validPhone int) {
-	re := regexp.MustCompile("[0-9]")
+	re := regexp.MustCompile(`\d`)
 	phoneNum = strings.Join(re.FindAllString(phoneNum, -1), "")
-	if len(phoneNum) == 7 {
+	if len(phoneNum) == 7 { //nolint:gomnd
 		phoneNum = "7495" + phoneNum
 	}
 	if phoneNum[0:1] == "8" {

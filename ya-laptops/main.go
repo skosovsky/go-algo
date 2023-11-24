@@ -2,12 +2,15 @@ package main
 
 import (
 	"fmt"
+	"log"
 )
 
 func main() {
 	var a1, b1, a2, b2 int
-	fmt.Scan(&a1, &b1, &a2, &b2) // standard input
-	//a1, b1, a2, b2 = 5, 7, 3, 2
+	_, err := fmt.Scan(&a1, &b1, &a2, &b2)
+	if err != nil {
+		log.Println(err)
+	} // standard input
 
 	fmt.Println(calcSizeTable(a1, b1, a2, b2)) // standard output
 }

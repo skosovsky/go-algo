@@ -64,7 +64,7 @@ func findOperation(input string) (result string, idxOp int, err error) {
 	var countAllOperations int
 	for _, el := range operations {
 		countOperation := strings.Count(input, el)
-		countAllOperations = countAllOperations + countOperation
+		countAllOperations += countOperation
 	}
 
 	switch {
@@ -100,7 +100,8 @@ func findNumber(input string) (result string, typeNumber int, err error) {
 	return "", 0, errors.New("не обнаружено ни одного числа от 1 (I) до 10 (X)")
 }
 
-func calculation(firstNumber string, secondNumber string, operation string, typeNumber int) (result string, err error) {
+//nolint:gocyclo
+func calculation(firstNumber, secondNumber, operation string, typeNumber int) (result string, err error) {
 	var firstNumberInt int
 	var secondNumberInt int
 	var resultInt int
@@ -118,7 +119,7 @@ func calculation(firstNumber string, secondNumber string, operation string, type
 		}
 	case 2:
 		for key, value := range numberConverstion {
-			if value == firstNumber && value == secondNumber {
+			if value == firstNumber && firstNumber == secondNumber {
 				firstNumberInt = key
 				secondNumberInt = key
 			} else if value == firstNumber {

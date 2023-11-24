@@ -1,7 +1,9 @@
 package main
 
+import "fmt"
+
 func main() {
-	EvenOrOdd(55)
+	fmt.Println(EvenOrOdd(55)) //nolint:gomnd
 }
 
 func EvenOrOdd(number int) string {
@@ -10,5 +12,4 @@ func EvenOrOdd(number int) string {
 	} else {
 		return "Odd"
 	}
-
 }

@@ -61,7 +61,7 @@ func findPN(k, m, k2, p2, n2 int) (p1, n1 int) {
 
 		if n == 0 {
 			n = m
-			p = p - 1
+			p--
 		}
 
 		if p1 == -1 && n1 == -1 {

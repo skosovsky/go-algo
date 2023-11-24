@@ -14,7 +14,7 @@ func Test_solveEquation(t *testing.T) {
 	tests := []struct {
 		name       string
 		args       args
-		wantResult interface{}
+		wantResult interface{} //nolint:gofmt
 	}{
 		{
 			name:       "Example 1",

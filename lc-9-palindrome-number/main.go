@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	isPalindrome(121)
+	isPalindrome(121) //nolint:gomnd
 }
 
 // result: 20ms / 6.6Mb

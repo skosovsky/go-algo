@@ -12,7 +12,7 @@ func main() {
 	fmt.Println(solveEquation(numA, numB, numC)) // standard output
 }
 
-func solveEquation(numA int, numB int, numC int) (result interface{}) {
+func solveEquation(numA, numB, numC int) (result interface{}) { //nolint:gofmt
 	switch {
 	case numA == 0 && int(math.Pow(float64(numC), 2))-numB == 0:
 		result = "MANY SOLUTIONS"

@@ -11,7 +11,7 @@ func main() {
 	fmt.Print(detectTemp(tempRoom, tempCond, modeCond)) // standard output
 }
 
-func detectTemp(tempRoom int, tempCond int, modeCond string) int {
+func detectTemp(tempRoom, tempCond int, modeCond string) int {
 	switch modeCond {
 	case "freeze":
 		if tempCond >= tempRoom {
