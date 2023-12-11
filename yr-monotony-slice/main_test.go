@@ -59,7 +59,7 @@ func Test_checkMonotopy(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotResult := checkMonotopy(tt.args.userSlice); gotResult != tt.wantResult {
+			if gotResult := checkMonotonic(tt.args.userSlice); gotResult != tt.wantResult {
 				t.Errorf("checkMonotopy() = %v, want %v", gotResult, tt.wantResult)
 			}
 		})
@@ -68,18 +68,28 @@ func Test_checkMonotopy(t *testing.T) {
 
 func BenchmarkCheckMonotopy(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		checkMonotopy([]int{5, 6, 7, 6, 11, 12})
+		checkMonotonic([]int{5, 6, 7, 6, 11, 12})
+		checkMonotonic([]int{5, 6, 7, 9, 11, 12})
 	}
 }
 
 func BenchmarkCheckSlice(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		checkSlice([]int{5, 6, 7, 6, 11, 12})
+		checkSlice([]int{5, 6, 7, 9, 11, 12})
+	}
+}
+
+func BenchmarkIsMonotonicA(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		isMonotonicA([]int{5, 6, 7, 6, 11, 12})
+		isMonotonicA([]int{5, 6, 7, 9, 11, 12})
 	}
 }
 
 func BenchmarkIsMonotonic(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		isMonotonic([]int{5, 6, 7, 6, 11, 12})
+		isMonotonic([]int{5, 6, 7, 9, 11, 12})
 	}
 }

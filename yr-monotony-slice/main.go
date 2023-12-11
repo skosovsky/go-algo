@@ -20,10 +20,10 @@ func main() {
 		userSlice = append(userSlice, valInt)
 	}
 
-	fmt.Println(checkMonotopy(userSlice))
+	fmt.Println(checkMonotonic(userSlice))
 }
 
-func checkMonotopy(userSlice []int) bool {
+func checkMonotonic(userSlice []int) bool {
 	if len(userSlice) <= 2 {
 		return true
 	}
@@ -77,7 +77,7 @@ func checkSlice(slice []int) bool {
 	return true
 }
 
-func isMonotonic(in []int) bool {
+func isMonotonicA(in []int) bool {
 	less := false
 	great := true
 
@@ -93,4 +93,17 @@ func isMonotonic(in []int) bool {
 		}
 	}
 	return true
+}
+
+func isMonotonic(arr []int) bool {
+	isUp, isDown := true, true
+	for i := 1; i < len(arr); i++ {
+		if arr[i-1] > arr[i] {
+			isUp = false
+		}
+		if arr[i-1] < arr[i] {
+			isDown = false
+		}
+	}
+	return isUp || isDown
 }
