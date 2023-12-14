@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 	"unicode"
 )
 
@@ -31,4 +32,15 @@ func Capitalize(st string, arr []int) string {
 	}
 
 	return string(newline)
+}
+
+func CapitalizeELegant(st string, arr []int) string {
+	res := strings.Split(st, "")
+	for _, v := range arr {
+		if v >= len(res) {
+			continue
+		}
+		res[v] = strings.ToUpper(res[v])
+	}
+	return strings.Join(res, "")
 }
