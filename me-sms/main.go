@@ -19,6 +19,7 @@ func main() {
 		{Content: "СЧЁТ3550 19:25 Перевод 10 790р от Людмила Д. Баланс: 15 266.43р"},
 		{Content: "MIR-9550 13:35 перевод 400р Комиссия 2р TINKOFF Баланс: 18 062.43р"},
 		{Content: "MIR-9550 13:38 Покупка 75.20р Urent Баланс: 17 987.23р"},
+		{Content: "MIR-9550 17:26 Покупка 754р APTEKA Баланс: 18 396.23р"},
 	}
 
 	for _, v := range sms {
@@ -29,6 +30,11 @@ func main() {
 
 func NewSms(sms Message) {
 	log.Println("new sms -", sms.Content)
+	if strings.Contains(sms.Content, "Покупка") {
+		log.Println("В теле сообщения отсутствует информация о переводе")
+		return
+	}
+
 	r := regexp.MustCompile(`(?s)\b(\d[\s\d]*(?:\.\d+)?)р`)
 
 	f := r.FindAllStringSubmatch(sms.Content, -1)
