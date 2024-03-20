@@ -18,27 +18,38 @@ func main() {
 	}
 }
 
-func parseCarPlates() []string {
-	var carPlatesPackage []string
+func parseDataTemperaturePackage() [][]string { // TODO: проверить сначала что работает
+	var dataTemperaturePackage [][]string
+	var dateTemperatureKit []string
 	var err error
-	var countCarPlates int
+	var countTemperaturePackage int
 
-	_, err = fmt.Scan(&countCarPlates)
+	_, err = fmt.Scan(&countTemperaturePackage)
 	if err != nil {
 		log.Println(err)
 	}
 
-	for i := 0; i < countCarPlates; i++ {
-		var carPlates string
-		_, err = fmt.Scan(&carPlates)
+	for i := 0; i < countTemperaturePackage; i++ {
+		var countTemperatureKit int
+
+		_, err = fmt.Scan(&countTemperatureKit)
 		if err != nil {
 			log.Println(err)
 		}
 
-		carPlatesPackage = append(carPlatesPackage, carPlates)
+		for i := 0; i < countTemperatureKit; i++ {
+			var dataTemperature string
+			_, err = fmt.Scan(&dataTemperature)
+			if err != nil {
+				log.Println(err)
+			}
+
+			dateTemperatureKit = append(dateTemperatureKit, dataTemperature)
+		}
+		dataTemperaturePackage = append(dataTemperaturePackage, dateTemperatureKit)
 	}
 
-	return carPlatesPackage
+	return dataTemperaturePackage
 }
 
 func isValidCarPlate(carPlate string) bool {
