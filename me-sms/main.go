@@ -31,7 +31,6 @@ func main() {
 
 func NewSms(sms Message) {
 	log.Println("new sms -", sms.Content)
-
 	if !strings.Contains(strings.ToLower(sms.Content), "перевод") {
 		log.Println("отсутствует информация о переводе")
 		return
