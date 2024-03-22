@@ -18,9 +18,9 @@ func main() {
 		{Content: "Перевод из Газпромбанк +2778р от КИРИЛЛ П. MIR-2778 — Баланс: 18044.43р"},
 		{Content: "MIR-2778 19:25 Перевод 10 790р от Людмила Д. Баланс: 15 266.43р"},
 		{Content: "MIR-2778 13:35 перевод 400р Комиссия 2р TINKOFF Баланс: 18 062.43р"},
-		{Content: "MIR-2778 13:38 Покупка 75.20р Urent Баланс: 17 987.23р"},
-		{Content: "MIR-2778 17:26 Покупка 754р APTEKA Баланс: 18 396.23р"},
 		{Content: "MIR-9550 13:18 Перевод 2650р от Элеонора К. Баланс: 19 579.59р"},
+		{Content: "MIR-2778 14:05 перевод 480р Комиссия 2.40р TINKOFF Баланс: 39 583.09р"},
+		{Content: "MIR-2778 14:10 Перевод 10 651р от Нина С. Баланс: 50 234.09р"},
 	}
 
 	for _, v := range sms {
@@ -30,9 +30,14 @@ func main() {
 }
 
 func NewSms(sms Message) {
+	sms.Content = strings.ReplaceAll(sms.Content, "\u00a0", " ")
 	log.Println("new sms -", sms.Content)
 	if !strings.Contains(strings.ToLower(sms.Content), "перевод") {
 		log.Println("отсутствует информация о переводе")
+		return
+	}
+	if !strings.Contains(strings.ToLower(sms.Content), " от ") {
+		log.Println("отсутствует входящий перевод")
 		return
 	}
 	if !strings.Contains(strings.ToUpper(sms.Content), "MIR-2778") {
@@ -40,7 +45,7 @@ func NewSms(sms Message) {
 		return
 	}
 
-	r := regexp.MustCompile(`(?s)\b(\d[\s\d]*(?:\.\d+)?)р`)
+	r := regexp.MustCompile(`(?s)\b(\d[\s\d]*(?:\.\d+)?)р`) // [+ ]((?:\d+ )*\d+)р
 
 	f := r.FindAllStringSubmatch(sms.Content, -1)
 
